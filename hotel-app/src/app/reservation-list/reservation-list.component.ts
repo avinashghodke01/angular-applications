@@ -14,8 +14,17 @@ export class ReservationListComponent implements OnInit{
 
   }
 
+  /** 
+   * this one is for localstorage
   ngOnInit(): void {
     this.reservations = this.reservationService.getReservations();
+  }
+  */
+
+  ngOnInit(): void {
+    this.reservationService.getReservations().subscribe(reservations => {
+      this.reservations = reservations;
+    });
   }
 
   deleteReservation(id: string){
